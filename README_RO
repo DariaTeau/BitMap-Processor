@@ -1,0 +1,42 @@
+Teau Daria
+311CD
+
+Task1--> Pentru task-ul 1 am folosit, pe langa bmp.header, o structura 'pixel' 
+pentru BGR-ul fiecarui pixel si o structura 'img' pentru a defini imaginea. Am 
+citit cele 2 headere si le-am scris identic in fisierul de output.Apoi, am citit
+octet cu octet, fiecare reprezentand o culoare(blue,green,red). In cazul in care
+una dintre cele 3 valori difera de 255(adica pixelul nu e alb) pun in variabile
+corespunzatoare valorile pentru bgr citite din input.txt, apoi le scriu in fisierul
+de output.Daca imaginea are padding, pentru fiecare octet de padding pun valoarea
+'0' in fisereul de output.
+
+Task2-->La task-ul 2 am folosit aceleasi structuri ca si la task-ul 1.Am facut 
+10 functii ce creaza o matrice de 5x5 pentru fiecare cifra de la 0 la 9, punand
+'.' unde ar fi un pixel alb si 'x' unde este un pixel colorat. Functia 'matrice'
+creaza o matrice ce pune '.' acolo unde gaseste un pixel alb in imagine si 'x' 
+acolo unde pixelul este colorat(identificarea pixelilor albi si colorati se face
+pe acelasi principiu ca la task-ul 1). Functia 'verificare' verifica daca in stanga
+si in dreapta cifrei exista o coloana formata din '.'(pixel alb) pentru a evita
+confundarea unei cifre cu portiuni din alta cifra. Functia 'cautare' cauta in 
+matricea principala, cea formata cu ajutorul functiei 'matrice', cifrele, cu 
+ajutorul matricelor formate cu primele 10 functii. Atunci cand gasete o cifra 
+pune '.' in locul 'x' pentru a nu o lua in considerare la urmatoarea cautare. 
+Functia 'testeazaMatrice' testeza daca cifrele au fost identificate cu succes. 
+Functia 'identificare' returneaza cifra gasita. In main, dupa gasirea fiecarei 
+cifre, aceasta este scrisa intr-un fisier text.
+
+Task3-->La task-ul 3 in plus fata de sctructurile folosite la celelalte doua 
+task-uri am folosit structura 'numar' ce retine cifra, coordonatele sale si o 
+un numar ce reprezinta BGR-ul pentru pixelii colorati. Am folosit aceleasi functii
+ca si la task-ul 2. In acest caz functia 'matrice' pune 'p' acolo unde exista 
+padding, spre deosebire de cea de la task-ul 2 care sare peste octetii de 
+padding. De asemenea mai creaza o matrice ce are '0' in loc de pixeli albi, '1'
+in loc de octetii de padding si un numar ce reprezinta BGR in loc de pixelii 
+colorati. Functia 'imagine' realizeaza imaginea finala in functie de o matrice 
+creata in main. In main fac un vector cu cifrele identificate in imagine, apoi 
+schimb in -1 cifrele ce trebuie eliminate. Dupa fac un vector doar cu cifrele 
+ce trebuie sa ramana in imagine( fiecare element al vectorului este de tipul 
+strucurii 'numar'). In continuare copiez intr-o matrice matricea corespunzatoare
+fiecarui element din ultimul vector la pozitia corespunzatoare, iar intr-o alta
+matrice pun codul bgr corespunzator.La final apelez functia 'imagine' dandu-i 
+ca paramtru matricea cu coduri.
